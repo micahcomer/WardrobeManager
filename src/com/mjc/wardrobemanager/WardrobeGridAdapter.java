@@ -51,7 +51,7 @@ public class WardrobeGridAdapter extends BaseAdapter{
 		if (convertView!=null){
 			convertView = LayoutInflater.from(mContext).inflate(R.layout.gridlistelement,null);
 			((ImageView)convertView.findViewById(R.id.imageView1)).setImageDrawable(items.get(position).getPic());
-			((TextView)convertView.findViewById(R.id.textView1)).setText(items.get(position).getDescription());
+			((TextView)convertView.findViewById(R.id.quantityLabel)).setText(items.get(position).getDescription());
 			return convertView;
 			
 		}
@@ -59,7 +59,7 @@ public class WardrobeGridAdapter extends BaseAdapter{
 			RelativeLayout r = (RelativeLayout)LayoutInflater.from(mContext).inflate(R.layout.gridlistelement, null);
 			ImageView v = (ImageView)r.findViewById(R.id.imageView1);
 			v.setImageDrawable(items.get(position).getPic());
-			TextView t = (TextView)r.findViewById(R.id.textView1);
+			TextView t = (TextView)r.findViewById(R.id.quantityLabel);
 			t.setText(items.get(position).getDescription());
 			return r;
 		}

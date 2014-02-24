@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
 		});
 		
 		WardrobeIO wio = new WardrobeIO(getApplicationContext());
-		wio.createDefaultTags(false);
+		
 	}
 
 	@Override

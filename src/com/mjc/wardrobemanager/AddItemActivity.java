@@ -3,25 +3,30 @@ package com.mjc.wardrobemanager;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.Tab;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class AddItemActivity extends Activity{
+public class AddItemActivity extends ActionBarActivity implements ActionBar.TabListener{
 
+	BasicsFragment basicsFrag;
+	TagsFragment tagsFrag;
+	
+	ActionBar.Tab basicsTab;
+	ActionBar.Tab tagsTab;
+	
 	WardrobeItem item;
 	Drawable image;
 	ArrayList<WardrobeTag> tags;
@@ -37,7 +42,8 @@ public class AddItemActivity extends Activity{
 	
 	private static final int REQUEST_WARDROBE_ITEM_PIC = 0;	
 	public static final int MEDIA_TYPE_IMAGE = 1;
-	
+
+	/*
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -96,6 +102,25 @@ public class AddItemActivity extends Activity{
 			}
 		});
 	}
+	 */
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState){
+				
+		
+		setContentView(LayoutInflater.from(getApplicationContext()).inflate(R.layout.additemscreen2, null));	
+		
+		ActionBar ab = getSupportActionBar();
+		basicsTab = ab.newTab().setText("Basic Details");		
+		tagsTab = ab.newTab().setText("Tags");
+		basicsTab.setTabListener(this);
+		tagsTab.setTabListener(this);
+		ab.addTab(basicsTab, true);
+		ab.addTab(tagsTab);
+		
+		
+		
+	}
 	
 	private void saveItem(){
 		WardrobeIO wio = new WardrobeIO(getApplicationContext());
@@ -145,5 +170,37 @@ public class AddItemActivity extends Activity{
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+
+
+	@Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
+		if (tab.equals(basicsTab)){
+			ft.attach(basicsFrag);
+		}else{
+			ft.attach(tagsFrag);
+		}
+		
+	}
+
+	@Override
+	public void onTabSelected(Tab tab, FragmentTransaction ft) {
+		if (tab.equals(basicsTab)){
+			ft.attach(basicsFrag);
+		}else{
+			ft.attach(tagsFrag);
+		}
+		
+	}
+
+	@Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+		if (tab.equals(basicsTab)){
+			ft.remove(basicsFrag);
+		}else{
+			ft.remove(tagsFrag);
+		
+	}
+	
+}
 	
 }

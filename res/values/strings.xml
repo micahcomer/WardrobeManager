@@ -8,5 +8,18 @@
     <string name="addbutton">Add</string>
     <string name="mens">Men\s</string>
     <string name="clicktoadddesc">Click here to add description (Optional)</string>
+    <string name="reset_values">Reset Values</string>
+    <string name="cancel">Cancel</string>
+    <string name="wardrobe_item_picture">Wardrobe Item Picture</string>
+    <string name="done">Done</string>
+    <string name="click_to_add_photo">Click here to add a photo of the new item.</string>
+    <string name="description">Click here to add a description of the item (Optional).</string>
+    <string name="quantity">Quantity</string>
+    <string name="brand">Brand</string>
+    <string name="miscdetails">Click here to add miscellaneous notes (Optional).</string>
+    <string name="itemimage">Item Image</string>
+    <string name="number1">1</string>
+    <string name="defaultGridText">Item</string>
+    <string name="gridItemPic">Item Picture</string>
 
 </resources>

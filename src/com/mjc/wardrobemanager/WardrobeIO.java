@@ -168,7 +168,7 @@ public final class WardrobeIO {
 	}
 
 	
-		
+		public void createDefaultTags(boolean overwrite){
 		File dir = mContext.getFilesDir();
 		File f = new File(dir, "tags.dat");
 		
